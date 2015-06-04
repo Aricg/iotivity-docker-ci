@@ -23,6 +23,10 @@ docker build -t iotivityslave .
 docker run --workdir="/root"  -v "$(pwd)"/iotivity-extlibs-03272015:/root/extlibs -t iotivityslave bash -x BuildScript
 ```
 
+If you want to mess around in the container after it is built you can jump into interactive mode.
+```
+docker run --workdir="/root"  -v "$(pwd)"/iotivity-extlibs-03272015:/root/extlibs -i -t iotivityslave /bin/bash
+```
 
 TODO push jenkins ENV variables so we can pull the right refspec.
 TODO artifacts.
