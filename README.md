@@ -14,6 +14,8 @@ chmod -R +x iotivity-extlibs-03272015/
 cp:
 ```
 gsutil cp gs://iotivity-extlibs/extlibs-03272015.tar.gz .
+gsutil cp gs://iotivity-extlibs/extlibs-03272015.md5 .
+md5sum extlibs-03272015.tar.gz; cat extlibs-03272015.md5
 tar -xvf extlibs-03272015.tar.gz
 ```
 
