@@ -1,0 +1,45 @@
+#!/bin/bash
+
+#usage
+#docker build -t iotivityslave .
+#(not implemented) docker run -t -i iotivityslave /bin/bash; cd /root/ bash -x BuildScript 
+# TO UPLOAD   gsutil -m rsync -r -d iotivity-extlibs-03272015/ gs://iotivity-extlibs/iotivity-extlibs-03272015/
+# TO DOWNLOAD gsutil rsync -d -r gs://iotivity-extlibs/iotivity-extlibs-03272015/ iotivity-extlibs-03272015/
+#
+
+export IOTIVITYEXTLIB="/root/extlibs"
+export WORKSPACE="/root/workspace/iotivity"
+
+mkdir -p workspace/
+cd workspace
+git clone https://gerrit.iotivity.org/gerrit/iotivity 
+cd iotivity 
+
+
+if [ ! -d "${WORKSPACE}/extlibs/boost" ]
+then
+    mkdir ${WORKSPACE}/extlibs/boost
+fi
+
+if [ ! -d "${WORKSPACE}/extlibs/gtest" ]
+then
+mkdir ${WORKSPACE}/extlibs/gtest
+fi
+
+unzip -oq /root/extlibs/boost/boost_1_58_0.zip -d $WORKSPACE/extlibs/boost/
+ln -sv ${IOTIVITYEXTLIB}/arduino/arduino-1.5.8 ${WORKSPACE}/extlibs/arduino/arduino-1.5.8
+ln -sv ${IOTIVITYEXTLIB}/cereal ${WORKSPACE}/extlibs/cereal
+ln -sv ${IOTIVITYEXTLIB}/android/android-ndk-r10d.bin ${WORKSPACE}/extlibs/android/ndk/android-ndk-r10d
+ln -sv ${IOTIVITYEXTLIB}/android/sdk/android-sdk_r24.2 ${WORKSPACE}/extlibs/android/sdk/android-sdk_r24.2
+ln -sv ${IOTIVITYEXTLIB}/android/gradle-2.2.1 ${WORKSPACE}/extlibs/android/gradle/gradle-2.2.1
+ln -sv ${IOTIVITYEXTLIB}/expat/expat-2.1.0 ${WORKSPACE}/extlibs/expat/expat-2.1.0
+ln -sv ${IOTIVITYEXTLIB}/gtest/gtest-1.7.0 ${WORKSPACE}/extlibs/gtest/gtest-1.7.0
+ln -sv ${IOTIVITYEXTLIB}/hippomocks-master ${WORKSPACE}/extlibs/hippomocks-master
+
+./auto_build.sh /root/extlibs/android/android-ndk-r10d.bin/ foo
+
+rm -rf /root/extlibs/boost/boost_1_58_0/ 
+
+#clean symlinks
+cd ${WORKSPACE}/extlibs/
+find . -maxdepth 1 -type l -exec rm -f {} \;
