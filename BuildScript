@@ -1,20 +1,9 @@
 #!/bin/bash
 
-#usage
-#docker build -t iotivityslave .
-#(not implemented) docker run -t -i iotivityslave /bin/bash; cd /root/ bash -x BuildScript 
-# TO UPLOAD   gsutil -m rsync -r -d iotivity-extlibs-03272015/ gs://iotivity-extlibs/iotivity-extlibs-03272015/
-# TO DOWNLOAD gsutil rsync -d -r gs://iotivity-extlibs/iotivity-extlibs-03272015/ iotivity-extlibs-03272015/
-#
-
 export IOTIVITYEXTLIB="/root/extlibs"
-export WORKSPACE="/root/workspace/iotivity"
+export WORKSPACE="/root/iotivity"
 
-mkdir -p workspace/
-cd workspace
-git clone https://gerrit.iotivity.org/gerrit/iotivity 
-cd iotivity 
-
+cd $WORKSPACE
 
 if [ ! -d "${WORKSPACE}/extlibs/boost" ]
 then
