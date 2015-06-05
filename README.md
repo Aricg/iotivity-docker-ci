@@ -36,5 +36,5 @@ If you want to mess around in the container after it is built you can jump into 
 docker run --workdir="/root"  -v "$(pwd)"/iotivity-extlibs-03272015:/root/extlibs -i -t iotivityslave /bin/bash
 ```
 
-TODO use pushed jenkins ENV variables to pull the right refspec.
+TODO: Capture artifacts for valgrind results
 
