@@ -1,6 +1,6 @@
 # iotivity-docker-ci
 
-Evaluating docker for build.opnfv.org
+Evaluating docker for build.iotivity.org
 
 Get libs, choose rsync or cp
 
