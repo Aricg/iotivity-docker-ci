@@ -165,3 +165,8 @@ xfonts-utils \
 zlib1g-dev
 
 ADD BuildScript /root/BuildScript
+RUN chmod +x /root/BuildScript
+
+WORKDIR /root
+
+CMD ["/root/BuildScript"]
