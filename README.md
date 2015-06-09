@@ -22,8 +22,8 @@ chmod -R +x iotivity-extlibs-03272015/
 ```
 gsutil cp gs://iotivity-extlibs/extlibs-03272015.tar.gz .
 gsutil cp gs://iotivity-extlibs/extlibs-03272015.md5 .
-md5sum extlibs-03272015.tar.gz extlibs-03272015.md5
-tar -xvf extlibs-03272015.tar.gz
+md5sum -c extlibs-03272015.md5
+tar xzf extlibs-03272015.tar.gz
 ```
 
 ## Build the Docker Image
