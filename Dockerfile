@@ -46,6 +46,7 @@ libasyncns0 \
 libavahi-client3 \
 libavahi-common-data \
 libavahi-common3 \
+libboost-all-dev \
 libbz2-dev \
 libc-dev-bin \
 libc6-dbg \
