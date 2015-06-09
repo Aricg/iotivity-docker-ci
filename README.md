@@ -50,6 +50,7 @@ If you want to mess around in the container after it is built you can
 jump into interactive mode.
 ```
 docker run \
+-v "$WORKSPACE":/root/iotivity \
 -v "$PWD"/iotivity-extlibs-03272015:/root/extlibs \
 -i -t iotivity/build /bin/bash
 ```
